@@ -1,9 +1,7 @@
 package com.QA.FinalSpringBootProject.Controller;
 
 import com.QA.FinalSpringBootProject.ErrorManagement.ErrorManagement;
-import com.QA.FinalSpringBootProject.Model.Gamer;
 import com.QA.FinalSpringBootProject.Model.RocketLeagueGame;
-import com.QA.FinalSpringBootProject.Repository.GamerRepository;
 import com.QA.FinalSpringBootProject.Repository.RocketLeagueGameRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
@@ -20,7 +18,7 @@ public class RocketLeagueGameController {
     @Autowired
     private RocketLeagueGameRepository repo;
 
-    @GetMapping(value = "/RocketLeague")
+    @GetMapping(value = "/Stats")
     public List<RocketLeagueGame> getAllStats1(){
         return repo.findAll();
     }
@@ -50,7 +48,6 @@ public class RocketLeagueGameController {
         updateStats.setGamesLost(rocketLeagueGameDetails.getGamesLost());
         updateStats.setGamesPlayed(rocketLeagueGameDetails.getGamesPlayed());
 
-
         repo.save(updateStats);
 
         return ResponseEntity.ok(updateStats);
@@ -66,11 +63,11 @@ public class RocketLeagueGameController {
 
     }
 
-    @GetMapping({"/Stats"})
+    @GetMapping({"/StatsDisplay"})
     public ModelAndView getAllStats() {
-        ModelAndView mav = new ModelAndView("list-stats");
-        mav.addObject("rocketLeagueGame", repo.findAll());
-        return mav;
+        ModelAndView mav2 = new ModelAndView("list-stats");
+        mav2.addObject("rocketLeagueGames", repo.findAll());
+        return mav2;
     }
 }
 

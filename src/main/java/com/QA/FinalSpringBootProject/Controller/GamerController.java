@@ -60,7 +60,7 @@ public class GamerController {
 
     }
 
-    @GetMapping({"/list"})
+    @GetMapping({"/GamerDisplay"})
     public ModelAndView getAllGamers() {
         ModelAndView mav = new ModelAndView("list-gamer");
         mav.addObject("gamers", repo.findAll());

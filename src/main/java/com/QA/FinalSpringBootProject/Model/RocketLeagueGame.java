@@ -18,7 +18,7 @@ public class RocketLeagueGame {
     private long id;
 
     @Column
-    private String Username;
+    private String username;
 
     @Column
     private int goalsScored;

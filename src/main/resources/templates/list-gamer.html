@@ -21,15 +21,13 @@
 
     <thead>
     <tr>
-      <th>Id</th>
-      <th>email</th>
+      <th>Email</th>
       <th>Firstname</th>
       <th>Lastname</th>
     </tr>
     </thead>
     <tbody>
     <tr th:each="gamer: ${gamers}">
-      <td th:text="${gamer.id}"></td>
       <td th:text="${gamer.emailAddress}"></td>
       <td th:text="${gamer.firstName}"></td>
       <td th:text="${gamer.lastName}"></td>

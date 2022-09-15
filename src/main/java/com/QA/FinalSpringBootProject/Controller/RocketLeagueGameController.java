@@ -10,6 +10,7 @@ import org.springframework.web.bind.annotation.*;
 import org.springframework.web.servlet.ModelAndView;
 
 import java.util.List;
+import java.util.Optional;
 
 @RestController
 @RequestMapping
@@ -41,6 +42,7 @@ public class RocketLeagueGameController {
         RocketLeagueGame updateStats = repo.findById(id)
                 .orElseThrow(() -> new ErrorManagement("Gamer with the ID:" + id + "is not present in the database" ));
 
+        updateStats.setId(rocketLeagueGameDetails.getId());
         updateStats.setUsername(rocketLeagueGameDetails.getUsername());
         updateStats.setGoalsScored(rocketLeagueGameDetails.getGoalsScored());
         updateStats.setGoalsConceded(rocketLeagueGameDetails.getGoalsConceded());
@@ -69,5 +71,15 @@ public class RocketLeagueGameController {
         mav2.addObject("rocketLeagueGames", repo.findAll());
         return mav2;
     }
+
+    @GetMapping(value = "/StatsDisplay/{id}")
+    public ModelAndView getStatsByIdDisplay(@PathVariable  long id){
+        ModelAndView mav3 = new ModelAndView("list-stats-by-Id");
+        mav3.addObject("rocketLeagueGames", repo.findById(id));
+        System.out.println(id);
+        return mav3;
+    }
+
+
 }
 

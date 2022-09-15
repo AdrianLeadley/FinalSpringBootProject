@@ -21,6 +21,7 @@
 
     <thead>
     <tr>
+      <th>ID</th>
       <th>Username</th>
       <th>Goals Scored</th>
       <th>Goals Conceded</th>
@@ -31,6 +32,7 @@
     </thead>
     <tbody>
     <tr th:each="rocketLeagueGame: ${rocketLeagueGames}">
+      <td th:text="${rocketLeagueGame.id}"></td>
       <td th:text="${rocketLeagueGame.username}"></td>
       <td th:text="${rocketLeagueGame.goalsScored}"></td>
       <td th:text="${rocketLeagueGame.goalsConceded}"></td>
@@ -38,6 +40,9 @@
       <td th:text="${rocketLeagueGame.gamesLost}"></td>
       <td th:text="${rocketLeagueGame.gamesPlayed}"></td>
     </tr>
+
+    <a href='http://localhost:9998/'><button>Home</button></a>
+    <a href='http://localhost:9998/GamerDisplay'><button>Community</button></a>
     </tbody>
 
   </table>

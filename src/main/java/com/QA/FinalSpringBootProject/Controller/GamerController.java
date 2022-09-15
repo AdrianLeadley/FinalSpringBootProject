@@ -66,6 +66,14 @@ public class GamerController {
         mav.addObject("gamers", repo.findAll());
         return mav;
     }
+
+    @GetMapping(value = "/GamerDisplay/{id}")
+    public ModelAndView getStatsByIdDisplay(@PathVariable  long id){
+        ModelAndView mav3 = new ModelAndView("List-Gamer-By-Id.html");
+        mav3.addObject("gamers", repo.findById(id));
+        return mav3;
+    }
+
 }
 
 

@@ -26,4 +26,5 @@ public class Gamer {
     @Column(unique = true, nullable = false)
     private String emailAddress;
 
+
 }

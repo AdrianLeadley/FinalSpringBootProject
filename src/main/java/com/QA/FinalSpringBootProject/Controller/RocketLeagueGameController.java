@@ -10,6 +10,7 @@ import org.springframework.web.bind.annotation.*;
 import org.springframework.web.servlet.ModelAndView;
 
 import java.util.List;
+import java.util.Optional;
 
 @RestController
 @RequestMapping
@@ -69,5 +70,15 @@ public class RocketLeagueGameController {
         mav2.addObject("rocketLeagueGames", repo.findAll());
         return mav2;
     }
+
+    @GetMapping(value = "/StatsDisplay/{id}")
+    public ModelAndView getStatsByIdDisplay(@PathVariable  long id){
+        ModelAndView mav3 = new ModelAndView("list-stats-by-Id");
+        mav3.addObject("rocketLeagueGames", repo.findById(id));
+        System.out.println(id);
+        return mav3;
+    }
+
+
 }
 

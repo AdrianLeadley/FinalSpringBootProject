@@ -74,8 +74,8 @@ public class RocketLeagueGameController {
 
     @GetMapping(value = "/StatsDisplay/{id}")
     public ModelAndView getStatsByIdDisplay(@PathVariable  long id){
-        ModelAndView mav3 = new ModelAndView("list-stats-by-Id");
-        mav3.addObject("rocketLeagueGames", repo.findById(id));
+        ModelAndView mav3 = new ModelAndView("list-stats-by-id");
+        mav3.addObject("rocketLeagueGames", repo.findById(id).orElseThrow(() -> new ErrorManagement("Gamer with the ID:" + id + "is not present in the database" )));
         System.out.println(id);
         return mav3;
     }

@@ -35,7 +35,6 @@ public class GamerController {
         return ResponseEntity.ok(gamer);
     }
 
-
     @PutMapping(value = "/Gamer/{id}")
     public ResponseEntity<Gamer> updateGamer(@PathVariable long id,@RequestBody Gamer gamerDetails) {
         Gamer updateGamer = repo.findById(id)
@@ -49,7 +48,6 @@ public class GamerController {
 
         return ResponseEntity.ok(updateGamer);
     }
-
     @DeleteMapping(value = "/Gamer/{id}")
     public ResponseEntity<HttpStatus> deleteGamer(@PathVariable long id){
 
@@ -59,12 +57,18 @@ public class GamerController {
         return new ResponseEntity<>(HttpStatus.NO_CONTENT);
 
     }
-
     @GetMapping({"/GamerDisplay"})
     public ModelAndView getAllGamers() {
         ModelAndView mav = new ModelAndView("list-gamer");
         mav.addObject("gamers", repo.findAll());
         return mav;
+    }
+
+    @GetMapping(value = "/GamerDisplay/{id}")
+    public ModelAndView getGamerByIdDisplay(@PathVariable  long id){
+        ModelAndView mav3 = new ModelAndView("list-gamer-by-id");
+        mav3.addObject("gamers", repo.findById(id).orElseThrow(() -> new ErrorManagement("Gamer with the ID:" + id + "is not present in the database" )));
+        return mav3;
     }
 }
 

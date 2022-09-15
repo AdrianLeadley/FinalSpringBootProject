@@ -9,7 +9,9 @@ Project Type: Maven
 Choose dependencies: Spring Web, Lombok, Spring Data JPA, spring-boot-starter-thymeleaf, and MySQL Driver,
 
 Download My FinalSpringBootproject and import it (unziped) into IntelliJ IDEA.
-run FinalSpringBootApplication.java 
+run FinalSpringBootApplication.java
+-- please note that you may have to change the url / user / and password in apllication properties to host this locally --
+-- I reccomend keeping it on server 9998:
 
 /////////////////////////////////////////////////////////////////////////////////////////////////////////////
 Use post man to test CRUD REST APIs

@@ -1,0 +1,58 @@
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+
+<head>
+  <title>Game Stats</title>
+
+  <link rel="stylesheet"
+        href="https://cdn.jsdelivr.net/npm/bootstrap@4.6.0/dist/css/bootstrap.min.css"
+        integrity="sha384-B0vP5xmATw1+K9KRQjQERJvTumQW0nPEzvF6L/Z6nronJ3oUOFUFpCjEUQouq2+l"
+        crossorigin="anonymous" />
+</head>
+
+<body>
+
+<div class="container">
+
+  <h3>Stats List</h3>
+
+  <hr/>
+
+  <table class="table table-bordered table-striped">
+
+    <thead>
+    <tr>
+      <th>ID</th>
+      <th>Username</th>
+      <th>Goals Scored</th>
+      <th>Goals Conceded</th>
+      <th>Games Won</th>
+      <th>Games Lost</th>
+    </tr>
+    </thead>
+    <tbody>
+    <tr th:each="rocketLeagueGame: ${rocketLeagueGames}">
+      <td th:text="${rocketLeagueGame.id}"></td>
+      <td th:text="${rocketLeagueGame.username}"></td>
+      <td th:text="${rocketLeagueGame.goalsScored}"></td>
+      <td th:text="${rocketLeagueGame.goalsConceded}"></td>
+      <td th:text="${rocketLeagueGame.gamesWon}"></td>
+      <td th:text="${rocketLeagueGame.gamesLost}"></td>
+    </tr>
+
+    <a href='http://localhost:9998/'><button>Home</button></a>
+    <a href='http://localhost:9998/StatsDisplay'><button>Return to Stats</button></a>
+    <a href='http://localhost:9998/GamerDisplay'><button>Community</button></a>
+    </tbody>
+
+  </table>
+  <h8>To view individuals by ID, add /{id} at the end of the html..</h8>
+  <h8>for example:   /2 = get the gamer where ID = 2</h8>
+
+
+
+</div>
+
+
+</body>
+
+</html>

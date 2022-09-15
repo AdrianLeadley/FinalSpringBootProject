@@ -21,6 +21,7 @@
 
     <thead>
     <tr>
+      <th>ID</th>
       <th>Username</th>
       <th>Goals Scored</th>
       <th>Goals Conceded</th>
@@ -31,6 +32,7 @@
     </thead>
     <tbody>
     <tr th:each="rocketLeagueGame: ${rocketLeagueGames}">
+      <td th:text="${rocketLeagueGame.id}"></td>
       <td th:text="${rocketLeagueGame.username}"></td>
       <td th:text="${rocketLeagueGame.goalsScored}"></td>
       <td th:text="${rocketLeagueGame.goalsConceded}"></td>

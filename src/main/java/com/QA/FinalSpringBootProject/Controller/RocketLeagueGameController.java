@@ -42,6 +42,7 @@ public class RocketLeagueGameController {
         RocketLeagueGame updateStats = repo.findById(id)
                 .orElseThrow(() -> new ErrorManagement("Gamer with the ID:" + id + "is not present in the database" ));
 
+        updateStats.setId(rocketLeagueGameDetails.getId());
         updateStats.setUsername(rocketLeagueGameDetails.getUsername());
         updateStats.setGoalsScored(rocketLeagueGameDetails.getGoalsScored());
         updateStats.setGoalsConceded(rocketLeagueGameDetails.getGoalsConceded());
